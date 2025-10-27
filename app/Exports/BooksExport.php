@@ -11,7 +11,7 @@ class BooksExport implements FromCollection, WithHeadings
 
     public function collection()
     {
-        return Books::select('name', 'title', 'age', 'count', 'gender')->get();
+        return Books::select('name', 'title', 'age', 'count', 'gender','due_date', 'active')->get();
     }
 
     public function headings(): array
@@ -22,6 +22,8 @@ class BooksExport implements FromCollection, WithHeadings
             'age',
             'count',
             'gender',
+            'due_date',
+            'active',
         ];
     }
 }

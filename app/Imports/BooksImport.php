@@ -16,7 +16,9 @@ class BooksImport implements ToModel, WithHeadingRow
             'title' => $row['title'],
             'age' => $row['age'],
             'count' => $row['count'],
-            'gender' => $row['gender']
+            'gender' => $row['gender'],
+            'due_date' => $row['due_date'],
+            'active' => $row['active']
         ]);
     }
 }
