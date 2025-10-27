@@ -50,6 +50,18 @@
     </form>
     <hr>
     <h2>Export/Import</h2>
+    <div>
+        <label>Export excel</label>
+        <a href="{{ route('book.export') }}">Exportar</a>
+    </div>
+    <form action="{{ route('book.import') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div>
+            <label>Importar excel</label>
+            <input type="file" name="file">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
     <hr>
     <table border="1">
         <thead>
