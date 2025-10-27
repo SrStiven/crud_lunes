@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Exports\BooksExport;
 use App\Imports\BooksImport;
+use App\Mail\InfoNotificationMail;
 use App\Models\Books;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
 class BooksController extends Controller
@@ -55,6 +57,9 @@ class BooksController extends Controller
 
         $request -> validate(['file' => 'required|mimes:xlsx,xls']);
         Excel::import(new BooksImport, $request->file('file'));
+
+        $mensaje = "Los libros de excel fueron importados correctamente";
+        Mail::to('estivenmendezlara2020@gmail.com')->send(new InfoNotificationMail($mensaje));
         return redirect(route('book.index'))->with('success');
     }
 
