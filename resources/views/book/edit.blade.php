@@ -1,39 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Editar libros</h2>
+@extends('layouts.app')
+@section('content')
+<div class="mx-auto" style="width:200px">
+<h2 >Editar Libros</h2>
+</div>
     <form action="{{ route('book.update') }}"   method="POST">
         @csrf
         <input type="hidden" hidden="id" name="id" value="{{ $book->id }}">
-        <div>
+        <div class="form-group">
             <label> Nombre del autor</label>
-            <input type="text" name="name" required value="{{ $book->name }}">
+            <input class="form-control" type="text" name="name" required value="{{ $book->name }}">
         </div>
-        <br>
-        <div>
+        <div class="form-group">
             <label> Titulo del libro</label>
-            <input type="text" name="title" value="{{ $book->title }}">
+            <input  class="form-control" type="text" name="title" value="{{ $book->title }}">
         </div>
-        <br>
-        <div>
+        <div class="form-group">
             <label> Año de publicacion</label>
-            <input type="number" name="age" min="0" required value="{{ $book->age }}">
+            <input class="form-control" type="number" name="age" min="0" required value="{{ $book->age }}">
         </div>
-        <br>
-        <div>
+        <div class="form-group">
             <label>Cantidad de libros</label>
-            <input type="number" name="count" min="0" required value="{{ $book->count }}">
+            <input class="form-control" type="number" name="count" min="0" required value="{{ $book->count }}">
         </div>
-        <br>
-        <div>
+        <div class="form-group">
             <label>Genero del libro</label>
-            <select name="gender">
+            <select name="gender" class="form-control">
                 <option value="">Seleccionar</option>
                 <option value="accion" {{ $book->gender == 'accion' ? 'selected' : '' }}>Accion</option>
                 <option value="comedia" {{ $book->gender == 'comedia' ? 'selected' : '' }}>Comedia</option>
@@ -41,7 +32,7 @@
             </select>
         </div>
         <br>
-        <button type="submit">Enviar</button>
+        <a href="{{ route('book.index') }}" class="btn btn-secondary">Regresar</a>
+        <button type="submit" class="btn btn-success">Enviar</button>
     </form>
-</body>
-</html>
+@endsection

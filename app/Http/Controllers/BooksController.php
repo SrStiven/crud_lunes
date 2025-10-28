@@ -19,15 +19,15 @@ class BooksController extends Controller
 
     public function create(Request $request){
         $book = new Books();
-        $book -> fill($request->all());
-        $book ->save();
+        $book->fill($request->all());
+        $book->save();
         return redirect(route('book.index'));
     }
 
     public function update(Request $request){
         $book = Books::find($request -> id);
-        $book -> fill($request->all());
-        $book ->save();
+        $book->fill($request->all());
+        $book->save();
         return redirect(route('book.index'));
     }
 
