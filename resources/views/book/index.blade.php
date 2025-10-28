@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="mx-auto" style="width:200px">
-<h2 >Crear Libros</h2>
+<h2 >Creaacion de Libros</h2>
 </div>
 
     <div class="container p-3 my-3 bg-primary text-white">
